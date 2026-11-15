@@ -1,14 +1,20 @@
-# Wuchang: Fallen Feathers
+# Wuchang: Fallen Feathers — Neutral Ming Soldiers Mod
 
-## Neutral Ming Soldiers
+明末：渊虚之羽｜明军中立 MOD
 
-A configuration-controlled UE4SS Lua mod that makes selected hostile Ming soldiers passive until hit. Version **0.3.0**. Licensed under **MIT**.
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-[中文说明](docs/INSTALL_zh-CN.md) · [Installation](docs/INSTALL_EN.md) · [技术报告](docs/TECHNICAL_REPORT_zh-CN.md) · [Development](docs/DEVELOPMENT.md) · [Changelog](CHANGELOG.md) · [Nexus Mods](https://www.nexusmods.com/wuchangfallenfeathers/mods/496)
+A UE4SS Lua mod for **Wuchang: Fallen Feathers (WFF)**. Selected Ming soldiers remain passive until attacked and can retaliate. Config-controlled, enabled by default, with no hotkeys.
+
+《明末：渊虚之羽》明军中立 MOD：让名单内明军不主动攻击白无常，受击后仍可反击。通过配置文件控制，默认开启，无快捷键。
+
+Version **0.3.0** · **MIT License**
+
+**Download / 下载：[Neutral Ming Soldiers on Nexus Mods](https://www.nexusmods.com/wuchangfallenfeathers/mods/496)**
+
+[中文安装教程](docs/INSTALL_zh-CN.md) · [Installation](docs/INSTALL_EN.md) · [技术报告](docs/TECHNICAL_REPORT_zh-CN.md) · [Development](docs/DEVELOPMENT.md) · [Changelog](CHANGELOG.md) · [GitHub metadata](docs/GITHUB_METADATA.md)
 
 The whitelist currently contains 53 candidate blueprints. One armored shield-and-spear Ming soldier at 唐王行宫 was player-tested: it did not attack first and retaliated when attacked. Civilian, ordinary-soldier and all-chapter coverage remains incomplete. The final configuration entry was checked in a standalone Lua runtime; a complete in-game retest of that entry is still pending.
-
-这是“正常明军和百姓不主动攻击白无常、受击后可以反击”的实现项目。当前确认通过的是唐王行宫铠甲枪盾明军案例，不能理解为所有明军、百姓和章节均已验证。
 
 ## Install and configure
 
