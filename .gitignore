@@ -1,0 +1,33 @@
+# Generated packages and interpreter caches
+dist/
+*.zip
+__pycache__/
+*.py[cod]
+
+# Local investigation data and third-party binaries
+research/
+tools/
+save_backup*/
+*.uasset
+*.uexp
+*.ubulk
+*.pak
+*.utoc
+*.ucas
+*.usmap
+*.sav*
+*.log
+*.dmp
+*.dll
+*.exe
+CrashContext*.xml
+
+# Local settings and credentials
+.env
+.env.*
+.venv/
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
