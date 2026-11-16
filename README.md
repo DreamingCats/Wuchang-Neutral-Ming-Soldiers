@@ -34,6 +34,14 @@ Newer upstream builds have also had a reported gamepad/cursor initialization reg
 
 Copy `NeutralHumansDemo` into the WFF installation's `Mods` directory and retain `enabled.txt`. The internal folder and log prefix remain `NeutralHumansDemo` for compatibility with existing installations.
 
+**Steam:** in your Steam Library, right-click the game → **Manage → Browse local files**, then open `Project_Plague\Binaries\Win64\`. For this mod's release ZIP, merge its `ue4ss` folder into `Win64`; for a Git clone or GitHub source ZIP, copy only `NeutralHumansDemo` into `Win64\ue4ss\Mods\`. The installed entry must be:
+
+```text
+<SteamLibrary>\steamapps\common\Wuchang Fallen Feathers\Project_Plague\Binaries\Win64\ue4ss\Mods\NeutralHumansDemo\Scripts\main.lua
+```
+
+**PC Game Pass / XGP:** use `Project_Plague\Binaries\WinGDK\` instead. The mod's folder structure is otherwise the same. See the [Steam walkthrough](docs/INSTALL_EN.md#steam) and [XGP walkthrough](docs/INSTALL_EN.md#xgp). Steam placement follows existing Wuchang Lua mods and UE4SS directory conventions; it has not been an in-game compatibility test of this project.
+
 Edit `NeutralHumansDemo/Scripts/config.lua`:
 
 ```lua

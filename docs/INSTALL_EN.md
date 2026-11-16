@@ -12,13 +12,62 @@ Makes selected hostile Ming soldier blueprints passive by temporarily disabling 
 
 ## Requirements and installation
 
-1. Fully exit the game. Install **[UE4SS for WFF by Framecore](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)** following its author's instructions. This game-specific package is the required dependency; stock upstream releases are not the installation target for this mod. UE4SS for WFF and loader DLLs are not bundled.
-2. Locate the real Shipping executable directory and your existing UE4SS `Mods` folder. The tested PC Game Pass example is `C:\XboxGames\Wuchang PCGP\Content\Project_Plague\Binaries\WinGDK\`.
-3. For the `ue4ss/Mods` layout, merge the archive's `ue4ss` folder into that executable directory. Alternatively, copy only `NeutralHumansDemo` into your existing UE4SS `Mods` folder.
-4. Confirm `ue4ss/Mods/NeutralHumansDemo/Scripts/main.lua`, `config.lua`, `runtime.lua`, `targets.lua`, and `NeutralHumansDemo/enabled.txt` exist. Avoid an extra nested folder. If your custom `mods.txt` explicitly disables this mod, enable its entry without replacing the whole list.
-5. Launch the game and load a save. The release defaults to enabled. Allow a second or two for newly loaded instances to be processed.
+The following steps install **Neutral Ming Soldiers itself**, assuming [UE4SS for WFF](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description) is already working. The dependency and loader DLLs are not bundled.
 
-Do not install this Lua mod in `Content/Paks/~mods`. Manual installation is documented; Vortex/FOMOD automation has not been tested.
+<a id="steam"></a>
+
+### Steam
+
+1. Fully exit the game. In your Steam Library, right-click the game → **Manage → Browse local files**. Use the folder Steam opens, including for custom library locations.
+2. Open `Project_Plague\Binaries\Win64\`. A common complete path is:
+
+   ```text
+   <SteamLibrary>\steamapps\common\Wuchang Fallen Feathers\Project_Plague\Binaries\Win64\
+   ```
+
+3. **Mod release ZIP:** merge its `ue4ss` folder into `Win64`. Alternatively, copy only its `ue4ss\Mods\NeutralHumansDemo` folder into the existing `Win64\ue4ss\Mods\`.
+4. **Git clone or GitHub source ZIP:** copy only the source tree's `NeutralHumansDemo` folder into `Win64\ue4ss\Mods\`. Do not copy the outer repository folder, documentation, tests or builder into the game.
+5. Confirm both files are present:
+
+   ```text
+   Project_Plague\Binaries\Win64\ue4ss\Mods\NeutralHumansDemo\enabled.txt
+   Project_Plague\Binaries\Win64\ue4ss\Mods\NeutralHumansDemo\Scripts\main.lua
+   ```
+
+6. Keep `enabled = true` in `Scripts/config.lua`, restart and load your save. No activation hotkey is needed.
+
+This placement follows the [Wuchang Minimap author's instructions](https://www.nexusmods.com/wuchangfallenfeathers/mods/420?tab=description), [another Wuchang Lua mod's folder layout](https://www.nexusmods.com/wuchangfallenfeathers/mods/493?tab=description) and [UE4SS's executable-directory convention](https://docs.ue4ss.com/installation-guide.html). These are directory references, not additional mod requirements. **This project's in-game Steam behavior remains untested.**
+
+<a id="xgp"></a>
+
+### PC Game Pass / XGP
+
+The tested local executable directory is:
+
+```text
+C:\XboxGames\Wuchang PCGP\Content\Project_Plague\Binaries\WinGDK\
+```
+
+Use your actual installation drive and path. Merge the release archive's `ue4ss` folder into `WinGDK`, or copy the source tree's `NeutralHumansDemo` into `WinGDK\ue4ss\Mods\`. The remaining steps are the same: Steam uses `Win64`, while the tested XGP installation uses `WinGDK`.
+
+### Check either installation
+
+```text
+<real game EXE directory>/
+└─ ue4ss/
+   └─ Mods/
+      └─ NeutralHumansDemo/
+         ├─ enabled.txt
+         └─ Scripts/
+            ├─ main.lua
+            ├─ config.lua
+            ├─ runtime.lua
+            └─ targets.lua
+```
+
+Avoid extra nesting such as `Mods\NeutralHumansDemo\NeutralHumansDemo\Scripts`. This Lua mod does not go beside the outer launcher or in `Content/Paks/~mods`. Keep `enabled.txt`; if you manage this mod through your own `mods.txt`, check its entry without replacing the whole list. For a custom UE4SS working directory, use its active `Mods` folder instead of rearranging the loader.
+
+Launch and load a save, then allow a second or two for newly loaded instances to be processed. Manual installation is documented; Vortex/FOMOD automation has not been tested.
 
 Tested environment: PC Game Pass / WinGDK package `1.13.2.0`, runtime engine `5.1.1`, WFF package `1.79`, core UE4SS `3.0.1 Beta / cac01ee2`. Package and core versions are separate identifiers. Steam and other builds remain unverified. Keep an already working WFF installation instead of replacing it for this archive.
 

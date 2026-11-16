@@ -20,32 +20,72 @@
 
 ## 2. 手动安装
 
-1. 找到游戏实际运行的 Shipping EXE 所在目录。不要选最外层启动器目录，也不要放进 `Content/Paks/~mods`。
-2. 本机 XGP 的目录是：
+以下步骤只安装 **Neutral Ming Soldiers 本体**，以游戏已能正常加载 UE4SS for WFF 为前提。
+
+<a id="steam"></a>
+
+### 2.1 Steam 版
+
+1. 完全退出游戏。在 Steam 库中右键《明末：渊虚之羽》→ **管理 → 浏览本地文件**。如果使用了自定义 Steam 库，以这个入口实际打开的文件夹为准。
+2. 从游戏根目录继续进入：
 
    ```text
-   C:\XboxGames\Wuchang PCGP\Content\Project_Plague\Binaries\WinGDK\
+   Project_Plague\Binaries\Win64\
    ```
 
-   其他安装位置以你的实际 EXE、UE4SS 所在位置为准。
-3. 对于已经使用 `ue4ss/Mods` 结构的安装，将发布压缩包中的 `ue4ss` 文件夹合并到上述 EXE 目录。也可以只把包内的 `NeutralHumansDemo` 文件夹复制到你现有的 UE4SS `Mods` 文件夹。
-4. 最终应看到以下结构，避免多套一层文件夹：
+   常见完整路径为：
 
    ```text
-   <游戏实际 EXE 目录>/
-   └─ ue4ss/
-      └─ Mods/
-         └─ NeutralHumansDemo/
-            ├─ enabled.txt
-            └─ Scripts/
-               ├─ main.lua
-               ├─ config.lua
-               ├─ runtime.lua
-               └─ targets.lua
+   <Steam库>\steamapps\common\Wuchang Fallen Feathers\Project_Plague\Binaries\Win64\
    ```
 
-5. 保留 `enabled.txt`，它用于让 UE4SS 加载本 MOD 的入口。本机通过该文件加载，无需改动其他 MOD。若你自己在 `mods.txt` 中显式禁用了 `NeutralHumansDemo`，请按现有加载方式改为启用；不要覆盖整个 `mods.txt`。
-6. 启动游戏、载入存档即可，**默认开启，不需要按键**。新载入的符合条件实例由初始化 hook 和约每秒一次的扫描处理，刚载入时可等一两秒再接近。
+3. **使用本 MOD 的发布压缩包：** 解压后，将包内 `ue4ss` 文件夹合并到上述 `Win64` 目录。或者只把 `ue4ss\Mods\NeutralHumansDemo` 复制到已有的 `Win64\ue4ss\Mods\`。
+4. **使用 Git 克隆或 GitHub 的源码 ZIP：** 打开源码根目录，只把 `NeutralHumansDemo` 文件夹复制到 `Win64\ue4ss\Mods\`。源码 ZIP 的外层仓库目录、`docs`、`tests` 和打包脚本都不需要复制到游戏中。
+5. 确认这两个文件都在正确位置：
+
+   ```text
+   Project_Plague\Binaries\Win64\ue4ss\Mods\NeutralHumansDemo\enabled.txt
+   Project_Plague\Binaries\Win64\ue4ss\Mods\NeutralHumansDemo\Scripts\main.lua
+   ```
+
+6. 按下方配置说明保留 `enabled = true`，重新启动游戏并载入存档。无需按键开启。
+
+Steam 安装位置按 [Wuchang Minimap 作者的安装说明](https://www.nexusmods.com/wuchangfallenfeathers/mods/420?tab=description)、[同游戏 Lua MOD 的目录示例](https://www.nexusmods.com/wuchangfallenfeathers/mods/493?tab=description) 和 [UE4SS 的实际游戏 EXE 目录规则](https://docs.ue4ss.com/installation-guide.html) 整理。这里借鉴的是目录和复制方式，不引入这些其他 MOD 的依赖、按键或配置。**本项目仍未完成 Steam 版游戏内行为实测。**
+
+<a id="xgp"></a>
+
+### 2.2 PC Game Pass / XGP 版
+
+本机实际目录为：
+
+```text
+C:\XboxGames\Wuchang PCGP\Content\Project_Plague\Binaries\WinGDK\
+```
+
+使用自己的实际安装盘符和路径。发布包的 `ue4ss` 文件夹合并到 `WinGDK`；Git 源码中的 `NeutralHumansDemo` 文件夹放入 `WinGDK\ue4ss\Mods\`。其余复制和检查步骤与 Steam 版相同；Steam 使用 `Win64`，本机 XGP 使用 `WinGDK`。
+
+### 2.3 两个版本共用的目录检查
+
+最终结构如下，`<游戏实际 EXE 目录>` 对应各自的 `Win64` 或 `WinGDK`：
+
+```text
+<游戏实际 EXE 目录>/
+└─ ue4ss/
+   └─ Mods/
+      └─ NeutralHumansDemo/
+         ├─ enabled.txt
+         └─ Scripts/
+            ├─ main.lua
+            ├─ config.lua
+            ├─ runtime.lua
+            └─ targets.lua
+```
+
+- 不要放到最外层启动器旁边或 `Content/Paks/~mods`；这是 Lua MOD。
+- 不要形成 `Mods\NeutralHumansDemo\NeutralHumansDemo\Scripts` 等多套一层的结构。
+- 保留 `enabled.txt`，它让 UE4SS 加载本 MOD 入口；功能开关由 `Scripts/config.lua` 决定。若你自行在 `mods.txt` 中管理了此 MOD 的加载状态，请检查自己的条目，不要覆盖整个加载列表。
+- 若前置采用自定义 UE4SS 工作目录，应将 `NeutralHumansDemo` 放入实际生效的 `Mods`，无需为了本 MOD 重排加载器目录。
+- 启动并载入存档后等一两秒，让初始化 hook 和约每秒一次的扫描处理新实例。日志位置见第 5 节。
 
 本包提供手动安装结构，未制作或验证 Vortex/FOMOD 自动安装规则。
 

@@ -34,6 +34,14 @@
 
 将本仓库的 `NeutralHumansDemo` 文件夹放入 WFF 专用环境的 `Mods` 目录，保留其中的 `enabled.txt`。内部目录名和日志前缀继续使用 `NeutralHumansDemo`，方便现有玩家更新。
 
+**Steam 版：** 在 Steam 库中右键游戏 → **管理 → 浏览本地文件**，打开 `Project_Plague\Binaries\Win64\`。下载本 MOD 的发布压缩包时，将包内 `ue4ss` 文件夹合并到 `Win64`；使用 Git 克隆或 GitHub 源码 ZIP 时，只把其中的 `NeutralHumansDemo` 文件夹复制到 `Win64\ue4ss\Mods\`。最终入口应位于：
+
+```text
+<Steam库>\steamapps\common\Wuchang Fallen Feathers\Project_Plague\Binaries\Win64\ue4ss\Mods\NeutralHumansDemo\Scripts\main.lua
+```
+
+**PC Game Pass / XGP 版：** 对应位置为 `Project_Plague\Binaries\WinGDK\`，MOD 内部结构相同。详见 [Steam 安装步骤](docs/INSTALL_zh-CN.md#steam) 和 [XGP 安装步骤](docs/INSTALL_zh-CN.md#xgp)。Steam 路径根据其他《明末》Lua MOD 与 UE4SS 通用目录规则整理，本项目尚未在 Steam 版中进行行为实测。
+
 编辑 `NeutralHumansDemo/Scripts/config.lua`：
 
 ```lua

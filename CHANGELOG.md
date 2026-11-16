@@ -1,5 +1,11 @@
 # 更新记录 / Changelog
 
+## Steam installation documentation — 2026-11-16
+
+- 为本 MOD 补充 Steam 版安装步骤、Win64 路径和与 XGP WinGDK 的对照。
+- 区分发布 ZIP 的 ue4ss 文件夹合并方式和 Git/GitHub 源码中的单独 MOD 文件夹复制方式。
+- 补充最终目录、常见套层错误及目录依据；Steam 游戏内行为仍未实测。
+
 ## Dependency documentation — 2026-11-16
 
 - 中英文 README、安装教程和发布元数据将前置明确为 Framecore 的 UE4SS for WFF（Nexus mod 384）。
