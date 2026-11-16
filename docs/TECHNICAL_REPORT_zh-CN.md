@@ -30,12 +30,15 @@
 | 游戏发行渠道 | PC Game Pass / WinGDK |
 | 应用包清单版本 | 1.13.2.0；不等同于宣传补丁编号 |
 | 引擎运行时 | Unreal Engine 5.1.1 |
-| UE4SS | 3.0.1 Beta，提交 cac01ee2 |
+| 必需前置 | UE4SS for WFF（Framecore，Nexus mod 384）；本机包版本 1.79 |
+| UE4SS 核心 | 3.0.1 Beta，提交 cac01ee2；专用包版本与核心版本独立 |
 | 已实测章节 | 第一章中的唐王行宫场景 |
 | 同时加载的其他 MOD | 小地图、拍照/自由相机；未做完整兼容性矩阵 |
 | 未验证发行环境 | Steam、其他游戏版本及其他 UE4SS 构建 |
 
 原版 PAK 仅被读取。原型通过 UE4SS 操作当前进程中的角色与控制器，不生成覆盖 PAK，也没有主动写存档的代码。游戏本身在正常游玩、退出时仍可能保存进度，因此不能把“MOD 不写存档”理解为整个测试过程不会发生游戏自动存档。
+
+依赖说明于 2026-11-16 更新：本项目要求安装 [UE4SS for WFF](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)。作者说明该包为游戏 1.7 后的加载异常调整了设置、工具配置和 Blueprint 加载器。上游另有输入初始化回归及已接受的规避方案，但本项目没有验证用通用新版替换当前环境；这不等于认定所有原版构建都不能工作。[依赖依据与版本区分](UE4SS_DEPENDENCY.md)。
 
 ## 4. 文件分析方法
 
@@ -224,7 +227,7 @@ ChangeAlertStatu(当前 AlertStatu, true)
 
 ## 12. 复现与维护
 
-最小使用复现：按玩家 README 安装已兼容的 UE4SS 和本包，配置 `enabled = true`，重启，载入唐王行宫，寻找未受击的正常枪盾官兵，先接近观察，再攻击一次；检查 `passive` 与 `retaliation` 日志。另起游戏进程使用 `enabled = false`，确认停用日志及原版行为。
+最小使用复现：按玩家 README 和前置作者说明安装 UE4SS for WFF 及本包，配置 `enabled = true`，重启，载入唐王行宫，寻找未受击的正常枪盾官兵，先接近观察，再攻击一次；检查 `passive` 与 `retaliation` 日志。另起游戏进程使用 `enabled = false`，确认停用日志及原版行为。
 
 源码修改后仍采用完整重启。开发者可在游戏线程调用 `require("runtime").inspect()` 取得名单内实例的 ID、Camp、对 100 的关系及开关读回；该诊断函数未绑定玩家按键，不是运行时配置开关。
 

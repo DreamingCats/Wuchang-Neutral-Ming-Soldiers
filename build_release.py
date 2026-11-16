@@ -34,6 +34,7 @@ def main():
         ROOT / "docs/INSTALL_EN.md": "README_NeutralHumans_EN.md",
         ROOT / "CHANGELOG.md": "CHANGELOG_NeutralHumans.md",
         report: "docs/NeutralHumans_TECHNICAL_REPORT_CN.md",
+        ROOT / "docs/UE4SS_DEPENDENCY.md": "docs/UE4SS_DEPENDENCY.md",
         ROOT / "LICENSE": "LICENSE_NeutralMingSoldiers.txt",
     }
     for name in ("main.lua", "config.lua", "runtime.lua", "targets.lua"):

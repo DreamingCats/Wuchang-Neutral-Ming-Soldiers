@@ -28,7 +28,7 @@ This parses the four Lua files and checks that the default-enabled entry install
 
 ## Game testing
 
-Install into an already compatible UE4SS environment. Fully exit and restart after changing source or configuration. Avoid Restart All Mods: a full reload crashed during local development while other mods were also being reinitialized.
+Install into a working [UE4SS for WFF](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description) environment. The tested WFF package is 1.79, with core 3.0.1 Beta / cac01ee2; newer generic upstream replacements have not been validated. See [dependency rationale](UE4SS_DEPENDENCY.md). Fully exit and restart after changing source or configuration. Avoid Restart All Mods: a full reload crashed during local development while other mods were also being reinitialized.
 
 For each new whitelist entry, test both configurations on a fresh, previously unhit instance. Record location, appearance, original attitude, passive application and retaliation. Include an abnormal/feathered enemy control where appropriate. Do not mark additional characters or chapters verified based solely on field writes or class names.
 

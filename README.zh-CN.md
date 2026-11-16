@@ -4,6 +4,10 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+> [!WARNING]
+> **必须安装 UE4SS for WFF，不能使用原版 UE4SS 通用发行包作为本 MOD 的前置。**
+> 请下载 **[Framecore 的 UE4SS for WFF](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)**。本项目不支持用原版通用包替换 WFF 专用环境。相关构建曾被报告有加载 Fatal Error、手柄启动无响应和游戏光标异常；请保留专用包的游戏适配设置，原因详见下文。
+
 《明末：渊虚之羽》（**Wuchang: Fallen Feathers / WFF**）的 UE4SS Lua MOD，让名单内原本敌对的明军不主动攻击白无常，受击后仍可反击。通过配置文件控制，默认开启，无快捷键。
 
 当前版本 **0.3.0** · **MIT 许可证**
@@ -18,7 +22,17 @@
 
 ## 安装与配置
 
-需要预先安装与当前游戏版本兼容、能够正常工作的 **UE4SS**。将本仓库的 `NeutralHumansDemo` 文件夹放入 UE4SS 的 `Mods` 目录，保留其中的 `enabled.txt`。内部目录名和日志前缀继续使用 `NeutralHumansDemo`，方便现有玩家更新。
+**必需前置：[Framecore 的 UE4SS for WFF](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)。** 先按该作者的说明安装游戏专用包，再安装本 MOD。已有正常工作的 WFF 专用环境可继续使用；此前置需单独下载，不随本仓库分发。
+
+### 为什么不能直接用原版 UE4SS？
+
+作者说明，游戏 1.7 更新后，UE4SS 曾在加载时出现 Fatal Error。WFF 专用包调整了 `UE4SS-settings.ini`，补充 `Default_UVTD_Configs`，并调整 `BPModLoaderMod`。选择这个前置是为了沿用针对游戏的适配，并不等于本 Lua MOD 要求另一套独立修改的 UE4SS 核心。[作者原说明](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)。
+
+较新的上游构建还被报告存在手柄及游戏光标初始化回归。上游已接受规避方案，但本项目尚未验证用新版通用包替换现有环境，因此安装要求仍指定 WFF 专用包。[详细依据与版本说明](docs/UE4SS_DEPENDENCY.md)。
+
+### 安装本 MOD
+
+将本仓库的 `NeutralHumansDemo` 文件夹放入 WFF 专用环境的 `Mods` 目录，保留其中的 `enabled.txt`。内部目录名和日志前缀继续使用 `NeutralHumansDemo`，方便现有玩家更新。
 
 编辑 `NeutralHumansDemo/Scripts/config.lua`：
 
@@ -30,7 +44,7 @@ return {
 
 `true` 为开启，`false` 为关闭，默认为开启。修改后须**完全退出并重启游戏**。本版没有快捷键。详细目录、前置要求、更新和卸载步骤见[玩家安装教程](docs/INSTALL_zh-CN.md)。
 
-本机开发与测试环境：PC Game Pass / WinGDK，应用包版本 `1.13.2.0`，引擎 `5.1.1`，UE4SS `3.0.1 Beta / cac01ee2`。Steam 及其他构建尚未验证。
+本机开发与测试环境：PC Game Pass / WinGDK，应用包版本 `1.13.2.0`，引擎 `5.1.1`，UE4SS for WFF 包版本 `1.79`，其 UE4SS 核心为 `3.0.1 Beta / cac01ee2`。专用包版本不等于核心版本。Steam 及其他构建尚未验证。
 
 ## 实现原理
 
@@ -61,7 +75,7 @@ python build_release.py
 
 输出为 `dist/Neutral-Ming-Soldiers-0.3.0.zip`，仅需 Python 标准库。压缩包包含 MOD、玩家说明、技术报告及 MIT 许可证。生成的压缩包已被 Git 忽略，可作为发布附件分发。
 
-仓库不包含游戏资源、存档、原始日志、崩溃转储、提取的 SDK/usmap、研究工具二进制或其他 MOD。UE4SS 作为独立前置安装。
+仓库不包含游戏资源、存档、原始日志、崩溃转储、提取的 SDK/usmap、研究工具二进制或其他 MOD。UE4SS for WFF 作为独立前置安装。
 
 ## 鸣谢与许可
 

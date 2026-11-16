@@ -11,7 +11,7 @@ wuchang-neutral-ming-soldiers
 ## Description
 
 ```text
-UE4SS Lua mod for Wuchang: Fallen Feathers. Selected Ming soldiers remain passive until attacked and can retaliate. 明末：渊虚之羽｜明军中立 MOD。
+UE4SS Lua mod for Wuchang: Fallen Feathers. Selected Ming soldiers remain passive until attacked and can retaliate. Requires UE4SS for WFF. 明末：渊虚之羽｜明军中立 MOD。
 ```
 
 ## Website
@@ -29,6 +29,12 @@ lua
 game-mod
 gameplay-mod
 ```
+
+## Required dependency
+
+[UE4SS for WFF — Framecore / Nexus mod 384](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)
+
+发布说明使用此游戏专用包作为前置入口，不用原版 GitHub releases 链接代替。原因及上游修复状态见 [UE4SS 依赖说明](UE4SS_DEPENDENCY.md)。本文件不会自动修改 Nexus 或 GitHub 的线上依赖字段。
 
 ## README 的语言与检索
 

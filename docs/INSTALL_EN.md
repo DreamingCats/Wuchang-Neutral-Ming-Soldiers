@@ -2,13 +2,17 @@
 
 Version 0.3.0 — configuration-controlled UE4SS Lua mod.
 
+> [!WARNING]
+> **UE4SS for WFF is required. DO NOT use stock upstream UE4SS packages for this mod.**
+> Download **[UE4SS for WFF by Framecore](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)** and follow its game-specific setup. Generic upstream packages are not supported replacements; reported problems include loading Fatal Errors and gamepad/game-cursor initialization failures.
+
 Makes selected hostile Ming soldier blueprints passive by temporarily disabling their sight/hearing acquisition. Receiving a damage callback restores the original senses and lets the game's combat logic respond.
 
 **Player-confirmed test:** one armored Ming shield-and-spear soldier at 唐王行宫 did not initiate an attack and retaliated when attacked. This is an experimental release, not verified coverage of every soldier, civilian or chapter.
 
 ## Requirements and installation
 
-1. Fully exit the game. You need an already working, game-compatible UE4SS installation. UE4SS and loader DLLs are not included. See the [official installation guide](https://docs.ue4ss.com/installation-guide.html) and [releases](https://github.com/UE4SS-RE/RE-UE4SS/releases); generic instructions alone do not establish compatibility with this game.
+1. Fully exit the game. Install **[UE4SS for WFF by Framecore](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)** following its author's instructions. This game-specific package is the required dependency; stock upstream releases are not the installation target for this mod. UE4SS for WFF and loader DLLs are not bundled.
 2. Locate the real Shipping executable directory and your existing UE4SS `Mods` folder. The tested PC Game Pass example is `C:\XboxGames\Wuchang PCGP\Content\Project_Plague\Binaries\WinGDK\`.
 3. For the `ue4ss/Mods` layout, merge the archive's `ue4ss` folder into that executable directory. Alternatively, copy only `NeutralHumansDemo` into your existing UE4SS `Mods` folder.
 4. Confirm `ue4ss/Mods/NeutralHumansDemo/Scripts/main.lua`, `config.lua`, `runtime.lua`, `targets.lua`, and `NeutralHumansDemo/enabled.txt` exist. Avoid an extra nested folder. If your custom `mods.txt` explicitly disables this mod, enable its entry without replacing the whole list.
@@ -16,7 +20,11 @@ Makes selected hostile Ming soldier blueprints passive by temporarily disabling 
 
 Do not install this Lua mod in `Content/Paks/~mods`. Manual installation is documented; Vortex/FOMOD automation has not been tested.
 
-Tested environment: PC Game Pass / WinGDK package `1.13.2.0`, runtime engine `5.1.1`, UE4SS `3.0.1 Beta / cac01ee2`. Steam and other builds remain unverified. Keep an already working UE4SS installation instead of replacing it for this archive.
+Tested environment: PC Game Pass / WinGDK package `1.13.2.0`, runtime engine `5.1.1`, WFF package `1.79`, core UE4SS `3.0.1 Beta / cac01ee2`. Package and core versions are separate identifiers. Steam and other builds remain unverified. Keep an already working WFF installation instead of replacing it for this archive.
+
+### Why this dependency?
+
+The [WFF package author](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description) reports Fatal Errors after the game's 1.7 update and lists changes to settings, `Default_UVTD_Configs` and `BPModLoaderMod`. Later upstream builds also had a gamepad/cursor regression ([#1499](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499)). A workaround has since been accepted upstream, but this project has not validated replacing its WFF environment with a newer generic build. This is a supported-dependency choice, not a claim that every upstream build is incompatible or that the WFF core is a separate engine fork.
 
 ## Enable or disable
 

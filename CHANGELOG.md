@@ -1,5 +1,11 @@
 # 更新记录 / Changelog
 
+## Dependency documentation — 2026-11-16
+
+- 中英文 README、安装教程和发布元数据将前置明确为 Framecore 的 UE4SS for WFF（Nexus mod 384）。
+- 按改版作者说明解释游戏适配原因，并区分上游输入回归、已接受的规避方案与本项目尚未验证的替换方案。
+- 补充独立依赖说明及来源链接，安装包同步附带；不修改 MOD Lua 或游戏内已安装的加载器。
+
 ## Source repository — 2026-11-15
 
 - 对外名称统一为 Neutral Ming Soldiers，保留内部 NeutralHumansDemo 标识。

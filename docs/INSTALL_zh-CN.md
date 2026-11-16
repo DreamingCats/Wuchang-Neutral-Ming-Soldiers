@@ -2,16 +2,20 @@
 
 版本：0.3.0（配置文件版）｜游戏：《明末：渊虚之羽》｜类型：UE4SS Lua MOD
 
+> [!WARNING]
+> **必须安装 UE4SS for WFF，不能使用原版 UE4SS 通用发行包作为本 MOD 的前置。**
+> 请下载 **[Framecore 的 UE4SS for WFF](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)**，并保留其游戏适配设置。本项目不支持用原版通用包替换；相关构建曾被报告有加载 Fatal Error、手柄启动无响应和游戏光标异常。
+
 让名单内原本敌对的明军角色停止视觉、听觉主动索敌，受击后恢复原版战斗行为。**已由玩家实测：唐王行宫的一名铠甲枪盾明军不主动攻击白无常，受到主角攻击后会反击。**
 
 这是试验版。普通士兵、百姓和其他章节尚未全部验证，请先阅读文末的范围限制。
 
 ## 1. 安装前准备
 
-- 需要已能在你的游戏版本中正常工作的 **UE4SS**。本包只包含本 MOD 的 Lua 脚本，不包含 UE4SS、代理 DLL 或其他 MOD。
-- 本机验证环境：PC Game Pass / WinGDK，应用包版本 `1.13.2.0`，引擎运行时 `5.1.1`，UE4SS `3.0.1 Beta / cac01ee2`。这里的包版本不等同于游戏宣传补丁编号。
-- Steam、其他游戏版本和其他 UE4SS 构建未完成实测。已有可用 UE4SS 的玩家无需为了安装本包替换它。
-- 首次安装 UE4SS 时，请按其作者的安装说明配置与本游戏兼容的版本：[UE4SS 官方安装文档](https://docs.ue4ss.com/installation-guide.html)、[官方下载](https://github.com/UE4SS-RE/RE-UE4SS/releases)。通用安装文档本身不保证任意构建都兼容《明末》。
+- 必需前置为 **[UE4SS for WFF（Framecore，Nexus mod 384）](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)**。按该页面作者的说明先安装游戏专用包。本 MOD 仅含自编 Lua，不包含该前置、代理 DLL 或其他 MOD。
+- 本机验证环境：PC Game Pass / WinGDK，游戏应用包版本 `1.13.2.0`，引擎运行时 `5.1.1`，WFF 专用包版本 `1.79`，UE4SS 核心 `3.0.1 Beta / cac01ee2`。游戏包版本、WFF 附件版本和核心版本是不同标识。
+- Steam、其他游戏版本和其他 UE4SS 构建未完成本项目实测。已有可用 WFF 专用环境的玩家无需为了安装本包替换它。
+- 不将原版 UE4SS 下载页作为本 MOD 的前置安装入口：改版作者报告游戏 1.7 更新后有加载 Fatal Error，并为此调整配置、开发工具配置及 Blueprint 加载脚本。较新上游构建还存在过输入初始化回归；上游已接受规避方案，但本项目未验证通用新版替换。以上不是“所有原版版本均不能运行”的结论。[改版作者说明](https://www.nexusmods.com/wuchangfallenfeathers/mods/384?tab=description)、[输入问题记录](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499)。
 - 完全退出游戏后安装。建议按平时习惯备份自己的存档。
 
 ## 2. 手动安装
